@@ -14,7 +14,6 @@ class TodoItem(models.Model):
     )
     user_id = fields.Many2one("res.users", string="Assigné à", default=lambda self: self.env.user)
 
-    # Exemple de contrainte simple
     @api.constrains("name")
     def _check_name(self):
         for rec in self:
