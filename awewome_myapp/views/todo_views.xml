@@ -1,0 +1,51 @@
+<odoo>
+  <!-- Action -->
+  <record id="action_awesome_todo" model="ir.actions.act_window">
+    <field name="name">Tâches</field>
+    <field name="res_model">awesome.todo</field>
+    <field name="view_mode">list,form</field>
+  </record>
+
+  <!-- Menu racine (app) -->
+  <menuitem id="menu_awesome_root" name="Awesome MyApp" sequence="10"/>
+
+  <!-- Sous-menu + action -->
+  <menuitem id="menu_awesome_todo"
+            name="Tâches"
+            parent="menu_awesome_root"
+            action="action_awesome_todo" sequence="10"/>
+
+  <!-- Liste -->
+  <record id="view_awesome_todo_list" model="ir.ui.view">
+    <field name="name">awesome.todo.list</field>
+    <field name="model">awesome.todo</field>
+    <field name="arch" type="xml">
+      <list>
+        <field name="name"/>
+        <field name="user_id"/>
+        <field name="priority"/>
+        <field name="due_date"/>
+        <field name="is_done"/>
+      </list>
+    </field>
+  </record>
+
+  <!-- Formulaire -->
+  <record id="view_awesome_todo_form" model="ir.ui.view">
+    <field name="name">awesome.todo.form</field>
+    <field name="model">awesome.todo</field>
+    <field name="arch" type="xml">
+      <form string="Tâche">
+        <sheet>
+          <group>
+            <field name="name"/>
+            <field name="user_id"/>
+            <field name="priority"/>
+            <field name="due_date"/>
+            <field name="is_done"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+</odoo>
