@@ -1,0 +1,44 @@
+<odoo>
+    <!--affichage en list du niveau de compétence d'un salarié-->
+    <record id="view_gpec_competence_list" model="ir.ui.view">
+        <field name="name">gpec.competence.list</field>
+        <field name="model">gpec.competence</field>
+        <field name="arch" type="xml">
+            <list string="Compétences">
+                <field name="name"/>
+                <field name="niveau"/>
+                <field name="employee_id"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- fiew form du niveau de compétence d'un salarié-->
+    <record id="view_gpec_competence_form" model="ir.ui.view">
+        <field name="name">gpec.competence.form</field>
+        <field name="model">gpec.competence</field>
+        <field name="arch" type="xml">
+            <form string="Compétence">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="niveau"/>
+                        <field name="employee_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--Bouton dans la navbar-->
+    <record id="action_gpec_competence" model="ir.actions.act_window">
+        <field name="name">Compétences</field>
+        <field name="res_model">gpec.competence</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="menu_gpec_competence"
+              name="Compétences"
+              parent="menu_gpec_root"
+              action="action_gpec_competence"
+              sequence="20"/>
+</odoo>

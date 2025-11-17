@@ -10,4 +10,6 @@
         "views/todo_views.xml",
     ],
     "application": True,   # apparaît comme une app dans le menu
+    'test': ['tests/test_todo.py'],
+
 }
